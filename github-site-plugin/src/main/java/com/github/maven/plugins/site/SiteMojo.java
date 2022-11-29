@@ -427,18 +427,13 @@ public class SiteMojo extends GitHubProjectMojo {
 		commit.setMessage(message);
 		commit.setTree(tree);
 
-        try {
-            CommitUser author = new CommitUser();
-            author.setName("adiantek");
-            author.setEmail("adiantek@gmail.com");
-            author.setDate(new GregorianCalendar().getTime());
+		CommitUser author = new CommitUser();
+		author.setName("adiantek");
+		author.setEmail("adiantek@gmail.com");
+		author.setDate(new GregorianCalendar().getTime());
 
-            commit.setAuthor(author);
-            commit.setCommitter(author);
-        } catch (IOException e) {
-            throw new MojoExecutionException("Error retrieving user info: "
-                    + getExceptionMessage(e), e);
-        }
+		commit.setAuthor(author);
+		commit.setCommitter(author);
 
 		// Set parent commit SHA-1 if reference exists
 		if (ref != null)
