@@ -428,12 +428,9 @@ public class SiteMojo extends GitHubProjectMojo {
 		commit.setTree(tree);
 
         try {
-            UserService userService = new UserService(service.getClient());
-            User user = userService.getUser();
-
             CommitUser author = new CommitUser();
-            author.setName(user.getName());
-            author.setEmail(userService.getEmails().get(0));
+            author.setName("adiantek");
+            author.setEmail("adiantek@gmail.com");
             author.setDate(new GregorianCalendar().getTime());
 
             commit.setAuthor(author);
